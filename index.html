@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>Prodigy Consulting Pvt. Ltd.</title>
+<!-- Your CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<style>
+    body {
+  margin-top: 80px; /* adjust based on navbar height */;
+        font-family: Arial, sans-serif;
+        background-color: #B5EAD7;
+    }
+
+
+    .navbar {
+    position: fixed;   /* THIS IS THE MAIN FIX */
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100px;
+	flex-wrap: wrap;
+    background: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    color: white;
+	box-sizing: border-box;
+
+    z-index: 1000; /* keeps it above everything */
+}
+
+    .logo img {
+        font-size: 15px;
+        font-weight: bold;
+	height: 90px;
+	width: 125px;
+	float: left;
+  clip-path: oval(60%);
+  shape-outside: oval(65%);
+    }
+.facebook img {
+	font-size: 3px;
+        font-weight: bold;
+	height: 30px;
+	width: 30px;
+    }
+.linkedin img {
+	font-size: 3px;
+        font-weight: bold;
+	height: 30px;
+	width: 100px;
+    }
+
+    .menu {
+        display: flex;
+        gap: 20px;
+    }
+
+    .menu a {
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+    }
+
+    .menu a:hover {
+        background: #3b82f6;
+        border-radius: 5px;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+	right: 0;
+	left: auto;
+        background: white;
+        min-width: 200px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        border-radius: 5px;
+	
+    }
+
+    .dropdown-content a {
+        color: green;
+        padding: 10px;
+        display: block;
+        text-decoration: underline;
+    }
+
+    .dropdown-content a:hover {
+        background: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+/* Sub dropdown */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    left: auto;
+    right: 100%
+    top: 0;
+    background: white;
+    min-width: 200px;
+}
+
+/* Show submenu on hover */
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
+    /* HERO SECTION */
+    .hero {
+        text-align: center;
+        padding: 80px 20px;
+        background: golden;
+    }
+
+    .hero h1 {
+        color: #1e3a8a;
+        font-size: 36px;
+    }
+
+    .hero p {
+        color: #555;
+    }
+
+    /* SECTIONS */
+    .section {
+        width: 80%;
+        margin: auto;
+        padding: 40px 0;
+    }
+
+    .card {
+        background: silver;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	text-align: left;
+    }
+
+    .footer {
+        background: maroon;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+.content-box {
+	width: 400px;
+  padding: 20px;
+  border: 2px solid #333;
+  margin: 15px auto; /* Centers the box horizontally */
+    border-radius: 8px; /* Smooths the corners */
+ display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;     /* Vertical centering */
+  text-align: justify;
+gap: 15px;
+background-color: cyan;
+}
+.heading-text {
+	font-weight: bold;
+	font-size: 24px;
+	display: block;
+	width: 100%
+}
+
+
+</style>
+
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6QJSEDE3Q2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6QJSEDE3Q2');
+</script>
+
+<style>
+.tax-calculator {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.tax-calculator input {
+    width: 100%;
+    padding: 8px;
+}
+
+.tax-calculator button {
+    padding: 10px 20px;
+    background: orange;
+    border: none;
+    cursor: pointer;
+}
+.table, th, td {
+	border: 1px solid green;
+	width: auto;
+	height: auto;
+	padding: 10px;
+	background-color: orange;
+	color: green;
+
+
+
+</style>
+
+
+<body>
+
+<header>header</header>
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="logo">
+    <a href="index.html">
+        <img src="LP.png" alt="Prodigy Consulting Logo">
+    </a>
+</div>
+
+<p> 
+Find us on 
+</p>
+
+<div class="facebook">
+	<a href="https://www.facebook.com/p/Prodigy-Consulting-Pvt-Ltd-61571548910078/">
+		<img src="fb.png" alt="facebook">
+</div>
+<div class="linkedin">
+	<a href="https://www.linkedin.com/company/prodigy-consulting-pvt-ltd/">
+		<img src="linkedin.png" alt="LinkedIn">
+ </a>
+</div>
+
+
+<div class="menu">
+
+<div class="dropdown">        
+<a href="#about">About Us</a>
+<div class="dropdown-content">
+<a>Vision, Mission, Objectives</a>
+<a href="#management">Management Team</a>
+</div>
+</div>
+
+        <!-- SERVICES DROPDOWN -->
+        <div class="dropdown">
+            <a href="#">Services</a>
+            <div class="dropdown-content">
+                <a>Accounting</a>
+                <a href= "Taxconsulting.html">Tax Consulting</a>
+                <a href= "Companyregistration.html">Company Registration</a>
+                <a>Company Update</a>
+                <a>Business Planning</a>
+            </div>
+        </div>
+
+
+<!-- Downloads Dropdown -->
+        <div class="dropdown">
+            <a href="#">Downloads</a>
+            <div class="dropdown-content">
+                
+<!-- Acts with submenu -->
+        <div class="sub-dropdown">
+            <a href="#">Acts ▸</a>
+            <div class="sub-dropdown-content">
+                <a href="pdf/Income Tax Act.pdf" target="_blank">Income Tax Act</a>
+		<a href="pdf/VAT Act.pdf" target="_blank">VAT Act</a>
+                
+            </div>
+        </div>
+
+		<a>Rules and Regulation</a>
+                <a>Important Notices</a>
+          </div>
+</div>      
+
+	
+       <div class="dropdown"> 
+        <a href="#career">Career</a>
+<div class="dropdown-content">
+<a>Vacancy</a>
+<a>Apply Now</a>
+<a>Results</a>
+
+</div>
+</div>
+    </div>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Welcome to Prodigy Consulting Pvt. Ltd.</h1>
+    <p>Professional Accounting & Business Solutions</p>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+    <div class="card">
+        <h2>About Us</h2>
+        <p>
+           Prodigy Consulting Pvt. Ltd. is a private company registered with Office of Company Registrar on 2024 A.D. It is promoted by experienced and qualified personnel in the field of accounting, taxation, financial reporting and business planning. The company aims at growth of client organization by proper planning, due compliance with prevailing laws and regulation. It Provides reliable accounting, tax, and business consulting services.
+        </p>
+        <p><b>Address:</b> Budhanilkantha 10, Kapan, Kathmandu</p>
+        <p><b>Contact No:</b> 9860220044/9828755642</p>
+	<p><b>Email:</b> mailtoprodigy@gmail.com</p>
+    </div>
+</div>
+
+<div class="section" id="management">
+    <div class="card">
+        <h2>Management Team</h2>
+
+        <h3>Niraj Pandey</h3>
+        <p>Managing Director</p>
+        <p>Experienced Professional Accountant with expertise in tax and audit.</p>
+
+        <h3>Resham Bahadur Shahi, ACCA</h3>
+        <p>Chief Executive Officer</p>
+        <p>Mr. Shahi is an affiliate member of Association of Chartered Certified Accountants since 2023. He holds depth knowledge in FInancial Reporting, NFRS/IFRS, Assurance, Nepalese Taxation etc. field. He has experience in working for one of the oldest audit firm of Nepal.</p>
+
+    </div>
+</div>
+
+
+<!-- DOWNLOADS -->
+
+<!-- CAREER -->
+
+<!--Content Box-->
+<body>
+<div class="content-box">
+<p>
+Why we are?<br>
+Most of the organizations just register it and starts it's transaction. They are not precisely concerned about the accounting profit or loss, state of assets, rather they just concentrate on cash in hand. They consider the cash balance as their profit. Also, they are also not complied legal provisions which may lead to imposing large amount of fines and penalties at the end of fiscal year.
+</p>
+
+</div>
+</body>
+<h3>Applicability of Accounting Standards in Nepal</h3>
+
+<table>
+<tr>
+<th>Criteria</th>
+<th>Applicability</th>
+<th>Applicable From</th>
+</tr>
+<tr>
+	<td>Entities Having Public Accountability</td>
+	<td>Full NFRS</td>
+	<td>2082/83</td>
+</tr>
+  <tr>
+	<td>Entities not having Public Accountability</td>
+	<td>NFRS for SMEs</td>
+	<td>2081/82</td>
+</tr>
+  <tr>
+	<td>Entities not having Public Accountability Other than NFRS for SMEs</td>
+	<td>NAS for MEs or NAS for NPOs</td>
+	<td>2081/82</td>
+</tr>
+<table>
+
+
+<div class="section">
+    <div class="card tax-calculator">
+        <h2>Salary Tax Calculator for Fiscal Year 2083/84</h2>
+
+        <input type="number" id="income" placeholder="Enter Annual Income">
+
+        <br><br>
+
+        <button onclick="calculateTax()">Calculate</button>
+
+        <h3 id="result"></h3>
+    </div>
+</div>
+
+<div class="Important Links">
+<p>Important Links</p>
+<a href="https://ird.gov.np/">IRD</a><br>
+<a href="https://nepalstock.com/">NEPSE</a><br>
+<a href="https://en.ican.org.np/en//">ICAN</a><br>
+<a href="https://ocr.gov.np/">OCR</a><br>
+<a href="https://www.sebon.gov.np/">SEBON</a><br>
+<a href="https://asbnepal.gov.np/">Accounting Standard Board</a><br>
+<a href="https://lawcommission.gov.np/">Nepal Law Commission</a><br>
+
+</div>
+
+<script>
+function calculateTax() {
+    let income = document.getElementById("income").value;
+    let tax = 0;
+
+    
+if (income < 0) {
+	tax = "invalid input"
+}
+else if (income <= 1000000) {
+        tax = income * 0.01;
+    } else if (income <= 1500000) {
+        tax = 10000 + (income - 1000000) * 0.1;
+    } else if (income <= 2500000) {
+        tax = 60000 + (income - 1500000) * 0.2;
+    } else if (income <= 4000000) {
+	tax = 260000 + (income - 2500000) * 0.27;
+} else {
+	tax = 665000 + (income - 4000000) * 0.29;
+}
+
+
+    document.getElementById("result").innerText =
+        "Estimated Tax: NPR " + tax.toFixed(2);
+}
+</script>
+
+
+
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Prodigy Consulting Pvt. Ltd. | All Rights Reserved
+</div>
+
+</body>
+</html>
