@@ -336,38 +336,7 @@ Find us on
     </div>
 </div>
 
-<div class="team-member" onclick="openPartner('john')">
-  <img src="images/john.jpg" alt="John Doe">
-  <h3>John Doe</h3>
-  <p>Managing Partner</p>
-</div>
 
-<div id="partner-details"></div>
-
-<script>
-const partners = {
-  john: {
-    name: "John Doe",
-    role: "Managing Partner",
-    photo: "images/john.jpg",
-    bio: "John has over 10 years of experience..."
-  }
-};
-
-function openPartner(id) {
-  const partner = partners[id];
-
-  document.getElementById("partner-details").innerHTML = `
-    <div class="partner-profile">
-      <img src="${partner.photo}" alt="${partner.name}">
-      <h2>${partner.name}</h2>
-      <h4>${partner.role}</h4>
-      <p>${partner.bio}</p>
-    </div>
-  `;
-}
-</script>
-	
 <div class="section" id="management">
     <div class="card">
         <h2>Management Team</h2>
