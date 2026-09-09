@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acts & Laws | Bhandari & Gupta Associates</title>
+    <meta name="description" content="Acts, laws and regulations relevant to taxation, accounting, audit and business in Nepal.">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:"Segoe UI", Arial, sans-serif;
+            color:#172033;
+            background:#f7f9fc;
+            line-height:1.6;
+        }
+        img { max-width:100%; display:block; }
+        a { text-decoration:none; color:inherit; }
+        button { font-family:inherit; }
+
+        :root {
+            --navy:#0b1f3a;
+            --dark-navy:#06162a;
+            --blue:#164e8a;
+            --gold:#c9a227;
+            --gold-light:#e2c45a;
+            --white:#fff;
+            --light:#f7f9fc;
+            --text:#172033;
+            --muted:#667085;
+            --border:#e5eaf1;
+            --shadow:0 10px 35px rgba(11,31,58,.08);
+        }
+
+        .top-bar {
+            background:var(--navy); color:#fff; padding:8px 5%; font-size:12px;
+        }
+        .top-bar-inner {
+            max-width:1400px; margin:auto; display:flex;
+            justify-content:space-between; align-items:center; gap:20px;
+        }
+        .top-info { display:flex; gap:25px; align-items:center; }
+        .social-links { display:flex; gap:15px; }
+        .social-links a { opacity:.85; transition:.3s; }
+        .social-links a:hover { color:var(--gold-light); }
+
+        .navbar {
+            background:#fff; border-bottom:1px solid var(--border);
+            position:sticky; top:0; z-index:1000;
+        }
+        .nav-container {
+            max-width:1400px; margin:auto; min-height:76px; padding:0 5%;
+            display:flex; align-items:center; justify-content:space-between; gap:30px;
+        }
+        .logo { display:flex; align-items:center; gap:12px; }
+        .logo-mark {
+            width:55px; height:55px; border:2px solid var(--gold); border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:22px; font-weight:800; color:var(--navy);
+            object-fit:cover;
+        }
+        .logo-text { line-height:1.15; }
+        .logo-text strong {
+            display:block; font-family:Georgia,serif; font-size:17px; color:var(--navy);
+        }
+        .logo-text span {
+            font-size:10px; letter-spacing:.8px; color:var(--muted);
+        }
+        .nav-menu {
+            display:flex; align-items:center; gap:30px; list-style:none;
+            font-size:14px; font-weight:500;
+        }
+        .nav-menu a { position:relative; padding:28px 0; }
+        .nav-menu a::after {
+            content:""; position:absolute; left:0; bottom:19px; width:0; height:2px;
+            background:var(--gold); transition:.3s;
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after { width:100%; }
+        .nav-cta {
+            background:var(--gold); color:#fff; padding:12px 20px !important;
+            border-radius:6px; font-weight:600;
+        }
+        .nav-cta::after { display:none; }
+
+        .mobile-menu {
+            display:none; border:none; background:none; font-size:27px;
+            color:var(--navy); cursor:pointer;
+        }
+
+        /* Inner-page hero: same visual language as the main page */
+        .page-hero {
+            min-height:390px;
+            background:
+                linear-gradient(90deg, rgba(6,22,42,.97), rgba(11,31,58,.82)),
+                url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2000&q=85")
+                center/cover;
+            display:flex; align-items:center; color:#fff;
+        }
+        .page-hero-container {
+            width:100%; max-width:1400px; margin:auto; padding:75px 5%;
+        }
+        .eyebrow {
+            color:var(--gold-light); letter-spacing:4px; font-size:12px;
+            font-weight:700; margin-bottom:15px;
+        }
+        .page-hero h1 {
+            font-family:Georgia,"Times New Roman",serif;
+            font-size:clamp(42px,5vw,68px); line-height:1.05; margin-bottom:20px;
+        }
+        .page-hero p {
+            max-width:680px; font-size:17px; color:rgba(255,255,255,.82);
+        }
+
+        .breadcrumb-wrap {
+            background:#fff; border-bottom:1px solid var(--border);
+            padding:16px 5%;
+        }
+        .breadcrumb {
+            max-width:1400px; margin:auto; font-size:13px; color:var(--muted);
+        }
+        .breadcrumb a { color:var(--blue); }
+        .breadcrumb .current { color:var(--text); }
+
+        section { padding:85px 5%; }
+        .section-container { max-width:1400px; margin:auto; }
+        .section-heading { max-width:750px; margin-bottom:45px; }
+        .section-label {
+            color:var(--gold); text-transform:uppercase; font-size:11px;
+            letter-spacing:3px; font-weight:700; margin-bottom:8px;
+        }
+        .section-heading h2 {
+            font-family:Georgia,serif; font-size:clamp(30px,4vw,45px);
+            color:var(--navy); line-height:1.2; margin-bottom:12px;
+        }
+        .section-heading p { color:var(--muted); }
+
+        .acts-section { background:#f7f9fc; }
+        .acts-grid {
+            display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+        }
+        .act-card {
+            background:#fff; border:1px solid var(--border); border-radius:7px;
+            padding:28px 24px; transition:.3s; box-shadow:0 4px 15px rgba(0,0,0,.03);
+            position:relative; overflow:hidden;
+        }
+        .act-card::before {
+            content:""; position:absolute; left:0; top:0; width:100%; height:3px;
+            background:var(--gold); transform:scaleX(0); transform-origin:left;
+            transition:.3s;
+        }
+        .act-card:hover {
+            transform:translateY(-7px); box-shadow:var(--shadow);
+            border-color:rgba(201,162,39,.4);
+        }
+        .act-card:hover::before { transform:scaleX(1); }
+        .act-icon {
+            width:48px; height:48px; border-radius:7px; background:var(--navy);
+            color:var(--gold-light); display:flex; align-items:center;
+            justify-content:center; font-size:21px; margin-bottom:18px;
+        }
+        .act-card:nth-child(even) .act-icon { background:var(--gold); color:#fff; }
+        .act-card h3 {
+            font-family:Georgia,serif; font-size:19px; color:var(--navy);
+            margin-bottom:9px;
+        }
+        .act-card p { color:var(--muted); font-size:13px; margin-bottom:20px; }
+        .act-link {
+            display:inline-flex; align-items:center; gap:8px; color:var(--blue);
+            font-size:13px; font-weight:700;
+        }
+        .act-link:hover { color:var(--gold); }
+
+        .info-section { background:#fff; }
+        .info-box {
+            background:var(--navy); color:#fff; border-radius:8px; padding:35px;
+            display:flex; justify-content:space-between; align-items:center;
+            gap:30px;
+        }
+        .info-box h3 { font-family:Georgia,serif; font-size:27px; margin-bottom:8px; }
+        .info-box p { color:rgba(255,255,255,.72); font-size:13px; max-width:750px; }
+
+        .btn {
+            display:inline-flex; align-items:center; justify-content:center; gap:10px;
+            padding:14px 24px; border-radius:5px; font-size:14px; font-weight:600;
+            transition:.3s; cursor:pointer;
+        }
+        .btn-gold { background:var(--gold); color:#fff; }
+        .btn-gold:hover { background:#a98515; transform:translateY(-2px); }
+
+        footer { background:var(--dark-navy); color:#fff; padding:65px 5% 25px; }
+        .footer-container { max-width:1400px; margin:auto; }
+        .footer-grid {
+            display:grid; grid-template-columns:1.6fr repeat(4,1fr);
+            gap:45px; padding-bottom:45px;
+        }
+        .footer-brand .logo-text strong { color:#fff; }
+        .footer-brand p {
+            color:rgba(255,255,255,.6); font-size:13px; margin-top:18px; max-width:300px;
+        }
+        footer h4 { color:var(--gold-light); margin-bottom:18px; font-size:13px; }
+        footer ul { list-style:none; }
+        footer li { margin-bottom:9px; }
+        footer li a {
+            color:rgba(255,255,255,.65); font-size:12px; transition:.3s;
+        }
+        footer li a:hover { color:#fff; }
+        .footer-contact { color:rgba(255,255,255,.65); font-size:12px; }
+        .footer-contact p { margin-bottom:4px; }
+        .footer-bottom {
+            border-top:1px solid rgba(255,255,255,.1); padding-top:22px;
+            display:flex; justify-content:space-between; gap:20px;
+            color:rgba(255,255,255,.45); font-size:11px;
+        }
+
+        @media (max-width:1100px) {
+            .footer-grid { grid-template-columns:repeat(3,1fr); }
+            .nav-menu { gap:18px; }
+            .acts-grid { grid-template-columns:repeat(2,1fr); }
+        }
+        @media (max-width:800px) {
+            .top-info { flex-direction:column; align-items:flex-start; gap:2px; }
+            .top-bar { display:none; }
+            .nav-container { min-height:70px; }
+            .mobile-menu { display:block; }
+            .nav-menu {
+                display:none; position:absolute; left:0; right:0; top:70px;
+                background:#fff; flex-direction:column; align-items:stretch;
+                gap:0; padding:15px 5%; box-shadow:0 10px 25px rgba(0,0,0,.08);
+            }
+            .nav-menu.show { display:flex; }
+            .nav-menu a { padding:13px 0; }
+            .nav-menu a::after { display:none; }
+            .nav-cta { text-align:center; margin-top:8px; }
+            .page-hero { min-height:360px; }
+            .acts-grid { grid-template-columns:1fr 1fr; }
+            .info-box { flex-direction:column; align-items:flex-start; }
+            .footer-grid { grid-template-columns:repeat(2,1fr); }
+        }
+        @media (max-width:550px) {
+            section { padding:60px 5%; }
+            .logo-mark { width:45px; height:45px; font-size:18px; }
+            .logo-text strong { font-size:14px; }
+            .page-hero h1 { font-size:40px; }
+            .acts-grid { grid-template-columns:1fr; }
+            .footer-grid { grid-template-columns:1fr; }
+            .footer-bottom { flex-direction:column; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-info">
+            <a href="https://www.google.com/maps/place/Bhandari+%26+Gupta+Associates,+Chartered+Accountants/@27.6696434,85.3036814,17z">
+                <span>📍 Bagdole, Lalitpur-04, Nepal</span>
+            </a>
+            <span>📞 +977 9845835715 | +977 9863636037</span>
+            <span>✉ info@bandgassociates.com.np</span>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61586538905631">Facebook</a>
+            <a href="https://www.linkedin.com/in/bhandari-and-gupta-associates-chartered-accountants-58ab49394/">LinkedIn</a>
+        </div>
+    </div>
+</div>
+
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="logo bg.png" alt="B & G Logo" class="logo-mark">
+            <div class="logo-text">
+                <strong>Bhandari & Gupta</strong>
+                <strong>Associates</strong>
+                <span>CHARTERED ACCOUNTANTS</span>
+            </div>
+        </a>
+
+        <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#insights">Insights</a></li>
+            <li><a href="index.html#resources" class="active">Resources</a></li>
+            <li><a href="index.html#tools">Tools</a></li>
+            <li><a href="index.html#careers">Careers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Book a Consultation</a></li>
+        </ul>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="page-hero-container">
+        <div class="eyebrow">B&amp;G KNOWLEDGE HUB &nbsp; | &nbsp; RESOURCES</div>
+        <h1>Acts &amp; Laws</h1>
+        <p>
+            Important Acts, laws and regulations relevant to taxation,
+            accounting, audit and business compliance in Nepal.
+        </p>
+    </div>
+</section>
+
+<div class="breadcrumb-wrap">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        &nbsp; / &nbsp;
+        <a href="index.html#resources">Resources</a>
+        &nbsp; / &nbsp;
+        <span class="current">Acts &amp; Laws</span>
+    </div>
+</div>
+
+<section class="acts-section">
+    <div class="section-container">
+
+        <div class="section-heading">
+            <div class="section-label">Legal &amp; Regulatory Resources</div>
+            <h2>Acts &amp; Laws</h2>
+            <p>
+                Browse important legislation and regulatory documents.
+                Click any item to open the relevant document.
+            </p>
+        </div>
+
+        <div class="acts-grid">
+
+            <!-- Replace the PDF filenames below with your actual files -->
+
+            <article class="act-card">
+                <div class="act-icon">⚖</div>
+                <h3>Income Tax Act, 2058</h3>
+                <p>Provisions relating to income tax and taxation matters in Nepal.</p>
+                <a class="act-link" href="pdf/income-tax-act-2058.pdf" target="_blank">View Act →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">📑</div>
+                <h3>Income Tax Rules, 2059</h3>
+                <p>Rules and procedures supporting implementation of income tax provisions.</p>
+                <a class="act-link" href="pdf/income-tax-rules-2059.pdf" target="_blank">View Rules →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">🧾</div>
+                <h3>Value Added Tax Act, 2052</h3>
+                <p>Legal provisions concerning VAT registration, collection and compliance.</p>
+                <a class="act-link" href="pdf/vat-act-2052.pdf" target="_blank">View Act →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">📚</div>
+                <h3>Value Added Tax Rules, 2053</h3>
+                <p>Rules and procedures relating to implementation of VAT provisions.</p>
+                <a class="act-link" href="pdf/vat-rules-2053.pdf" target="_blank">View Rules →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">🏢</div>
+                <h3>Companies Act, 2063</h3>
+                <p>Key legal provisions relating to companies, incorporation and corporate compliance.</p>
+                <a class="act-link" href="pdf/companies-act-2063.pdf" target="_blank">View Act →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">🔍</div>
+                <h3>Audit Act</h3>
+                <p>Relevant legal provisions concerning auditing and audit-related requirements.</p>
+                <a class="act-link" href="pdf/audit-act.pdf" target="_blank">View Act →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">👥</div>
+                <h3>Labour Act, 2074</h3>
+                <p>Important provisions relating to employment, labour rights and workplace compliance.</p>
+                <a class="act-link" href="pdf/labour-act-2074.pdf" target="_blank">View Act →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">🌐</div>
+                <h3>Foreign Exchange Regulation</h3>
+                <p>Relevant laws and regulations concerning foreign exchange and related transactions.</p>
+                <a class="act-link" href="pdf/foreign-exchange-regulation.pdf" target="_blank">View Document →</a>
+            </article>
+
+            <article class="act-card">
+                <div class="act-icon">📖</div>
+                <h3>Other Acts &amp; Regulations</h3>
+                <p>Add additional Acts, regulations and legal documents relevant to your clients.</p>
+                <a class="act-link" href="pdf/other-acts.pdf" target="_blank">View Document →</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="section-container">
+        <div class="info-box">
+            <div>
+                <h3>Need help understanding a regulation?</h3>
+                <p>
+                    Our professional team can help you understand applicable
+                    tax, accounting and regulatory requirements.
+                </p>
+            </div>
+            <a href="index.html#contact" class="btn btn-gold">Book a Consultation →</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-mark" style="color:white;">B&amp;G</div>
+                    <div class="logo-text">
+                        <strong>Bhandari &amp; Gupta</strong>
+                        <strong>Associates</strong>
+                        <span style="color:#aaa;">CHARTERED ACCOUNTANTS</span>
+                    </div>
+                </div>
+                <p>
+                    Professional Chartered Accountants providing Audit,
+                    Taxation, Accounting and Business Advisory services.
+                </p>
+            </div>
+
+            <div>
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#insights">Insights</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>RESOURCES</h4>
+                <ul>
+                    <li><a href="acts-laws.html">Acts &amp; Laws</a></li>
+                    <li><a href="#">NFRS</a></li>
+                    <li><a href="#">Notices</a></li>
+                    <li><a href="#">Downloads</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>TOOLS</h4>
+                <ul>
+                    <li><a href="#">Salary Tax Calculator</a></li>
+                    <li><a href="#">TDS Calculator</a></li>
+                    <li><a href="#">VAT Calculator</a></li>
+                    <li><a href="#">Tax Calendar</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>CONTACT</h4>
+                <div class="footer-contact">
+                    <p>📍 Bagdole, Lalitpur-04, Nepal</p>
+                    <p>📞 +977-9845835715</p>
+                    <p>📱 +977-9863636037</p>
+                    <p>✉ info@bandgassociates.com.np</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Bhandari &amp; Gupta Associates. All Rights Reserved.</span>
+            <span>Audit &nbsp; | &nbsp; Taxation &nbsp; | &nbsp; Accounting &nbsp; | &nbsp; Business Advisory</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav-menu a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        document.getElementById("navMenu").classList.remove("show");
+    });
+});
+</script>
+
+</body>
+</html>
